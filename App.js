@@ -5,6 +5,7 @@ import {
 
   import Home from './src/screens/containers/home';
   import Header from './src/sections/components/header';
+  import SuggestionList from './src/videos/containers/suggestions-list';
 
 
 type Props = {};
@@ -12,12 +13,10 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Home>
-        <Header>
-            <Text/>
-        </Header>
+        <Header/>            
         <Text>buscador</Text>
         <Text>categorias</Text>
-        <Text>sugerencia</Text>
+        <SuggestionList/>
       </Home>     
     );
   }
