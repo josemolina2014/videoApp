@@ -24,14 +24,17 @@ class SuggestionList extends Component {
         const list = [
             {
                 title:  'Avengers',
+                year : 2007,
                 key: '1'
             },
             {
                 title: 'Pokemon',
+                year : 2005,
                 key: '2'
             },
             {
                 title: 'Roma',
+                year: 2019,
                 key: '3'
             }
     ]
