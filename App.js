@@ -6,10 +6,15 @@ import {
   import Home from './src/screens/containers/home';
   import Header from './src/sections/components/header';
   import SuggestionList from './src/videos/containers/suggestions-list';
+  import API from './src/utils/api';
 
 
 type Props = {};
 export default class App extends Component<Props> {
+  componentDidMount(){
+    API.getSuggestion(10);
+  }
+
   render() {
     return (
       <Home>
