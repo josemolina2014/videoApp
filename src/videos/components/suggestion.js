@@ -6,23 +6,26 @@ import {
     StyleSheet
   } from "react-native";
 
-function Sugesstion(props){
+  
+function Suggestion(props){
     return (
         <View style= {styles.container}>
             <View style={styles.left}>
                 <Image
                     style= {styles.cover}
-                    source = {require('../../../assets/logo.png')}
+                    source={{
+                        uri: props.medium_cover_image
+                      }}
                 />
-                <View style={styles.gender}>
-                    <Text style={styles.genderText}>Acción 10</Text>
+                <View style={styles.genre}>
+                    <Text style={styles.genreText}>{props.language}Acc</Text>
                 </View>
             </View>
 
             <View style={styles.right}>
-                <Text style={styles.title}>Avenger</Text>
-                <Text style={styles.year}>2007</Text>
-                <Text style={styles.ratng}>5 Estrellas</Text>
+                <Text style={styles.title}>{props.title}</Text>
+                <Text style={styles.year}>{props.year}</Text>
+                <Text style={styles.ratng}>{props.rating}</Text>
             </View>
         </View>
     )
@@ -31,7 +34,7 @@ const styles = StyleSheet.create ({
     container : {
         flexDirection: 'row',
     },
-    gender: {
+    genre: {
         position: 'absolute',
         left: 0,
         top: 0,
@@ -39,7 +42,7 @@ const styles = StyleSheet.create ({
         paddingVertical: 5,
         paddingHorizontal: 7,
     },
-    genderText : {
+    genreText : {
         color : 'white',
         fontSize: 11,        
     },
@@ -76,4 +79,4 @@ const styles = StyleSheet.create ({
     }    
 })
 
-export default Sugesstion
+export default Suggestion

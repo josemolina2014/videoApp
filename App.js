@@ -12,9 +12,15 @@ import {
 
 type Props = {};
 export default class App extends Component<Props> {
+  state = {
+    sugestionList: []
+  }
   async componentDidMount(){
-    const movies= await API.getSuggestion(10);
+    const movies= await API.getSuggestion(10);//llamado al API
     console.log(movies);
+    this.setState({
+      sugestionList : movies, //se carga los datos obtenidos del API y se suben al estado para poder enviarla como props
+    })
   }
 
   render() {
@@ -23,7 +29,9 @@ export default class App extends Component<Props> {
         <Header/>            
         <Text>buscador</Text>
         <Text>categorias</Text>
-        <SuggestionList/>
+        <SuggestionList
+          list= {this.state.sugestionList} //envio la lista de peliculas como parametro
+        />
       </Home>     
     );
   }

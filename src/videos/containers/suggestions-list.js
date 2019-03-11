@@ -14,36 +14,19 @@ class SuggestionList extends Component {
     itemSeparator = () => <Separator> </Separator>
     renderItem = ({item}) => {
         return (
-            <Suggestion {...{item}} />
+            <Suggestion {...item} />
         )        
-    }
-    
-    
-
+    }     
+    keyExtractor = item => item.id.toString()
     render(){
-        const list = [
-            {
-                title:  'Avengers',
-                year : 2007,
-                key: '1'
-            },
-            {
-                title: 'Pokemon',
-                year : 2005,
-                key: '2'
-            },
-            {
-                title: 'Roma',
-                year: 2019,
-                key: '3'
-            }
-    ]
+      
         return (      
             <Layout
                 title ="Recomendado para ti"
             >
                 <FlatList
-                    data = {list}
+                    keyExtractor = {this.keyExtractor} //se especifica quien es la llave primaria o key del arreglo
+                    data = {this.props.list} //recibo la lista como parametro
                     ListEmptyComponent = {this.renderEmpty}
                     ItemSeparatorComponent = {this.itemSeparator}
                     renderItem = { this.renderItem }
