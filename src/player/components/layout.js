@@ -9,9 +9,12 @@ import {
 function Layout(props){
     return (
         <View style={styles.container}>
-             <View style= {styles.video}>
+            <View style= {styles.video}>
                 {props.video}
             </View>    
+            <View>
+                {props.loader}
+            </View>            
         </View>      
     )
 }

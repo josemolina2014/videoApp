@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Video from 'react-native-video';
 import { 
-    StyleSheet 
+    StyleSheet,
+    ActivityIndicator 
 } from "react-native";
 import Layout from '../components/layout';
 
@@ -15,6 +16,9 @@ class Player extends Component {
                         style = {styles.video}
                         resizeMode = "contain"
                     />
+                }
+                loader = {
+                    <ActivityIndicator color="red"/>
                 }
             />
         )
