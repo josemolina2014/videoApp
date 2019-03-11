@@ -5,7 +5,7 @@ import {
     StyleSheet, 
     ImageBackground
  } from "react-native";
-import { red } from 'ansi-colors';
+
 
  function CategoryListLayout (props){
     return (
