@@ -18,7 +18,7 @@ function Suggestion(props){
                       }}
                 />
                 <View style={styles.genre}>
-                    <Text style={styles.genreText}>{props.language}Acc</Text>
+                    <Text style={styles.genreText}>{props.genre}Acc</Text>
                 </View>
             </View>
 
