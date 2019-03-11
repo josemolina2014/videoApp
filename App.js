@@ -9,10 +9,12 @@ import {
   import API from './src/utils/api';
 
 
+
 type Props = {};
 export default class App extends Component<Props> {
-  componentDidMount(){
-    API.getSuggestion(10);
+  async componentDidMount(){
+    const movies= await API.getSuggestion(10);
+    console.log(movies);
   }
 
   render() {

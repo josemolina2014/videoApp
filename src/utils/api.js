@@ -2,11 +2,9 @@ const BASE_API  = 'https://yts.am/api/v2/';
 
 class Api {
 	async getSuggestion(id) { 
-		const query = await fetch(`${BASE_API}movie_details.json?movie_id=${id}`);
-		const data = await query.json();
-		console.log(data);
-
-		return data;
+		const query = await fetch(`${BASE_API}movie_suggestions.json?movie_id=${id}`);
+		const {data} = await query.json(); //se obtiene el key data del json
+		return data.movies; //extraigo los elementos del bloque data
 	}
 }
 
