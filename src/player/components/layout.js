@@ -15,7 +15,8 @@ function PlayerLayout(props){
             {
                 props.loading && props.loader
             }
-            </View>            
+            </View>     
+        {props.controls}       
         </View>      
     )
 }
@@ -38,12 +39,8 @@ const styles = StyleSheet.create({
         top: 0,
         bottom: 0,
         right:0,
-        justifyContent: 'center',
-        alingItem: 'center',
-
-
+        justifyContent: 'center', 
+        alignItems: 'center',       
     }
-
-
 })
 export default PlayerLayout;
