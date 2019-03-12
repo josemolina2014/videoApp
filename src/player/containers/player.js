@@ -7,14 +7,30 @@ import {
 import Layout from '../components/layout';
 
 class Player extends Component {
+  state ={
+    loading: true,
+  }
+  onBuffer = ({isBuffering}) => {
+    this.setState({
+      loading : isBuffering
+    })
+  }
+  onLoad = () => {
+        this.state({
+          loading: false
+        })
+  }
     render (){
         return (
             <Layout 
+                loading = {this.state.loading}
                 video= {
                     <Video
                         source = {{uri: 'https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4'}}
                         style = {styles.video}
                         resizeMode = "contain"
+                        onBuffer={this.onBuffer}
+                        onLoad = {this.onLoad}
                     />
                 }
                 loader = {
