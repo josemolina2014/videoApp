@@ -4,22 +4,33 @@ import {
 	TouchableOpacity,
 	TouchableWithoutFeedback,
 	StyleSheet,
-	Text
+	Text,
+	Platform
 }from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const playIcon = Platform.select({
+	ios: 'ios-play',
+	android: 'md-play'
+	});
+
+const pauseIcon = Platform.select({
+	ios:'ios-pause',
+	android: 'md-pause'
+})
 
 function PlayPause (props){
 	return (
 		<TouchableHighlight
-			onPress={props.onPress}
-			style = {styles.container}
-			underlayColor = "red"
+			onPress={props.onPress}			
+			
 			hitSlop={styles.hitSlopSyle}
 		>
 		{
-			props.paused?
-			<Text style = {styles.button}>PLAY</Text> 
+			props.paused?			
+			<Icon name={playIcon} size={25} color={'white'}/>
 			:
-			<Text style = {styles.button}>PAUSE</Text>
+			<Icon name={pauseIcon} size={25} color={'white'}/>			
 		}
 		</TouchableHighlight>
 	)
