@@ -101,14 +101,14 @@ class Player extends Component {
   }
 
   onPlaybackStatusUpdate = ({ positionMillis, durationMillis }) => {
-   /* if (positionMillis && durationMillis) {
+    if (positionMillis && durationMillis) {
       this.setState(() => ({ positionMillis }));
       this.onChange(this.state.positionMillis);
     }else return;
     if (!this.state.shouldPlay && this.state.showControls) {
       clearTimeout(this.timer);
       this.setState({showControls: true})
-    }*/
+    }
   }
 
 componentWillUnmount() {
@@ -136,6 +136,7 @@ componentWillUnmount() {
                         onProgress={this.onProgress}
                         fullscreenAutorotate ={true}
                         fullscreenOrientation = 'landscape'
+                        onPlaybackStatusUpdate = {this.onPlaybackStatusUpdate}
                     />
                 }
                 loader = {
@@ -155,8 +156,8 @@ componentWillUnmount() {
                             onValueChange={this.onChange}
                             onSlidingComplete={this.onSliding}
                             style={styles.slider}
-                            value={this.state.value}
-                            step={this.state.duration / 10000}
+                            value={this.state.currentTime}
+                            step={this.state.duration / 1000}
                             maximumTrackTintColor="rgba(0,0,0,.40)"
                             minimumTrackTintColor={
                               Platform.OS === 'ios'
