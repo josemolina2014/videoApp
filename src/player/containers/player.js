@@ -244,7 +244,7 @@ slidercontainer: {
     marginRight:10,
     color: 'white',
     left: 10,
-    top: 7,
+    top: 7,    
   }
   });
 
