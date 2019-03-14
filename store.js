@@ -13,6 +13,7 @@ import reducer from './reducers/videos';
 const persisConfig = {
     key : 'root',
     storage,
+    blacklist: ['selectedMovie'] //se definen cuales estados se resetean cuando se recargue la aplicación
 }
  const persistedReducer = persistReducer(persisConfig, reducer)
 
