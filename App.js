@@ -18,18 +18,25 @@ import {
 type Props = {};
 export default class App extends Component<Props> {
   state = {
-    sugestionList: [],
-    categoryList: [],
+    // sugestionList: [],
+    // categoryList: [],
   }
   async componentDidMount(){
-    const movies= await API.getSuggestion(10);//llamado al API
-    const categories= await API.getMovies();//llamado al API
-    console.log(movies);
-    console.log(categories);
-    this.setState({
-      sugestionList : movies, //se carga los datos obtenidos del API y se suben al estado para poder enviarla como props
-      categoryList : categories,
-    })
+    const categoryList= await API.getMovies();//llamado al API
+    store.dispatch({ // se cargan los datos obtenidos del api en el store (Session) para poder utilizarlos
+      type: 'SET_CATEGORY_LIST',
+      payload:{
+        categoryList
+      }
+    });
+
+    const suggestionList= await API.getSuggestion(10);//llamado al API
+    store.dispatch({
+      type : 'SET_SUGGESTION_LIST',
+      payload: {
+        suggestionList
+      }
+    });
   }
 
   render() {
@@ -40,14 +47,9 @@ export default class App extends Component<Props> {
        <Home>
           <Header/>  
           <Player/>        
-          <Text>buscador</Text>
-          <Text>categorias</Text>
-          <CategoryList
-            list= {this.state.categoryList} //envio la lista de peliculas como parametro
-          />
-          <SuggestionList
-            list= {this.state.sugestionList} //envio la lista de peliculas como parametro
-          />       
+          <Text>buscador</Text>          
+          <CategoryList />
+          <SuggestionList />       
         </Home>           
     </Provider>
 
