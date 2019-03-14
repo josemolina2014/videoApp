@@ -3,31 +3,36 @@ import {
     View,
     Image,
     Text,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
   } from "react-native";
 
   
 function Suggestion(props){
     return (
-        <View style= {styles.container}>
-            <View style={styles.left}>
-                <Image
-                    style= {styles.cover}
-                    source={{
-                        uri: props.medium_cover_image
-                      }}
-                />
-                <View style={styles.genre}>
-                    <Text style={styles.genreText}>{props.genre}Acc</Text>
+        <TouchableOpacity 
+            onPress={props.onPress} //se transfiere las propiedades de la funcion que captura el evento onPress
+        >
+            <View style= {styles.container}>
+                <View style={styles.left}>
+                    <Image
+                        style= {styles.cover}
+                        source={{
+                            uri: props.medium_cover_image
+                        }}
+                    />
+                    <View style={styles.genre}>
+                        <Text style={styles.genreText}>{props.genre}Acc</Text>
+                    </View>
+                </View>
+
+                <View style={styles.right}>
+                    <Text style={styles.title}>{props.title}</Text>
+                    <Text style={styles.year}>{props.year}</Text>
+                    <Text style={styles.ratng}>{props.rating}</Text>
                 </View>
             </View>
-
-            <View style={styles.right}>
-                <Text style={styles.title}>{props.title}</Text>
-                <Text style={styles.year}>{props.year}</Text>
-                <Text style={styles.ratng}>{props.rating}</Text>
-            </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 const styles = StyleSheet.create ({

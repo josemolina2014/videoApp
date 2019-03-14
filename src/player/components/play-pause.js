@@ -21,7 +21,7 @@ const pauseIcon = Platform.select({
 
 function PlayPause (props){
 	return (
-		<TouchableHighlight
+		<TouchableOpacity
 			onPress={props.onPress}			
 			
 			hitSlop={styles.hitSlopSyle}
@@ -32,7 +32,7 @@ function PlayPause (props){
 			:
 			<Icon name={pauseIcon} size={25} color={'white'}/>			
 		}
-		</TouchableHighlight>
+		</TouchableOpacity>
 	)
 }
 

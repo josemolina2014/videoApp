@@ -11,7 +11,7 @@ import Header from './sections/components/header';
 import SuggestionList from './videos/containers/suggestions-list';
 import API from './utils/api';
 import CategoryList from './videos/containers/category-list';
-import Player from './player/containers/player';
+import Movie from './screens/containers/movie';
 
 class AppLayout extends Component{
 
@@ -33,17 +33,24 @@ class AppLayout extends Component{
         });
     }
 
-    render(){
-        return (
-            <Home>
-            <Header/>  
-            <Player/>        
-            <Text>buscador</Text>          
+    render(){  
+        if(this.props.selectedMovie){
+            return <Movie />
+        }
+        return (            
+         <Home>                        
+            <Header/>
+            <Text>buscador</Text>
             <CategoryList />
-            <SuggestionList />       
+            <SuggestionList />
           </Home>
         )
     }
 }
+function mapStateToProps (state){
+    return {
+        selectedMovie: state.selectedMovie, //se obtiene el valor de selectedMovie del state y se crea una variable con el mismo nombre la cual estara disponible para su uso
+    }
+}
 
-export default connect(null)(AppLayout);
+export default connect(mapStateToProps)(AppLayout); //se crea el vinculo con la session del localstorage a traves de connect(mapStateToProps)
