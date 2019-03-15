@@ -55,3 +55,5 @@ const styles = StyleSheet.create({
 })
 
 export default connect(null)(Search);
+
+//null para no traer nada del store pero si sirve para colocar objetos en el store
