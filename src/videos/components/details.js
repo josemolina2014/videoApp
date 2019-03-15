@@ -51,7 +51,7 @@ function Details (props) {
             <View style={styles.trailer}>
                  <WebView 
                     source={{html : makeHTML(props.yt_trailer_code)}}
-                    originWhitelist={[`*`]}
+                    
                     >
                 </WebView>
             </View>                  
