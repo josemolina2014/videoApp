@@ -6,6 +6,7 @@
   import Loading from './src/sections/components/loading'
 
   import AppLayout from './src/app';
+  import AppNavigatorWihtState from './src/app-navigator-with-state';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -18,7 +19,7 @@ export default class App extends Component<Props> {
         loading = {<Loading/>}
         persistor = {persistor}
         >
-        <AppLayout />         
+        <AppNavigatorWihtState />         
       </PersistGate>       
     </Provider>     
     );
