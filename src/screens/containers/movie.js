@@ -19,6 +19,18 @@ class Movie extends Component {
         opacity: new Animated.Value(0),
     }
 
+    static navigationOptions= ({navigation}) =>{
+        return {
+            header : (
+                <Header>
+                    <Close 
+                        onPress = {()=> { navigation.goBack() }}
+                    />
+                </Header>
+            )
+        }
+    }
+
     closeVideo = () => {
         this.props.dispatch({ //se elimina el contendio de la variable SET_SELECTED_MOVIE, colocandolo el valor de movie del payload en null
             type: 'SET_SELECTED_MOVIE',
@@ -46,11 +58,7 @@ class Movie extends Component {
                     opacity: this.state.opacity,
                 }}>
                  <MovieLayout>
-                    <Header>
-                        <Close 
-                            onPress = {this.closeVideo}
-                        />
-                    </Header>
+                    
                     <Player/>   
                     <Details {...this.props.movie} />
                 </MovieLayout>
@@ -62,7 +70,7 @@ class Movie extends Component {
 }
 function mapSateToProps(state){
     return {
-        movie : state.selectedMovie
+        movie : state.videos.selectedMovie
     }
 }
 

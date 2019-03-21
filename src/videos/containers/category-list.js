@@ -13,7 +13,7 @@ function mapStateToProps(state){
    // debugger
 
     return {
-        list: state.categoryList
+        list: state.videos.categoryList
     }
    
 }

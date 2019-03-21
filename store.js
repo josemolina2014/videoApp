@@ -16,7 +16,7 @@ import reducer from './reducers/index';
 const persisConfig = {
     key : 'root',
     storage,
-    blacklist: ['selectedMovie'] //se definen cuales estados se resetean cuando se recargue la aplicación
+    blacklist: ['navigation'] //se definen cuales estados se resetean cuando se recargue la aplicación
 }
  const persistedReducer = persistReducer(persisConfig, reducer)
  const navigationMiddleWare = createReactNavigationReduxMiddleware(     
