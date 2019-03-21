@@ -3,11 +3,13 @@ import {
     View,
     FlatList
  } from "react-native";
+ import { NavigationActions } from 'react-navigation';
 import Empty from '../components/empty';
 import Separator from '../../sections/components/horizontal-separator';
 import Category from '../components/category';
 import Layout from '../components/category-list-layout';
 import {connect} from 'react-redux';
+
 
 function mapStateToProps(state){
    // debugger
@@ -21,9 +23,23 @@ function mapStateToProps(state){
     keyExtractor = item => item.id.toString()
     renderEmpty = () => <Empty text= "No hay sugerencias :("></Empty>
     itemSeparator = () => <Separator> </Separator>
+    viewCategory =  (item) => {
+        this.props.dispatch(            
+            NavigationActions.navigate({
+                routeName: 'Category',  // esta propiedad debe estar declarada en el createStackNavigator de app-navigator
+                params :{
+                    genre: item.genres[0]
+                }
+            })            
+        )
+    }
     renderItem = ({item}) => {
         return (
-            <Category {...item} />
+            <Category 
+                {...item}
+                // onPress={() => { this.viewCategory(item) }}
+                onPress={ this.viewCategory(item) }
+            />
         )        
     }
     render (){

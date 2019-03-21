@@ -7,6 +7,8 @@ import {
     SafeAreaView
 } from 'react-native';
 
+import { HeaderBackButton } from'react-navigation'
+
 function Header(props){
     return (
         <View>
