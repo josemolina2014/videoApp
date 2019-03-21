@@ -24,6 +24,7 @@ function mapStateToProps(state){
     renderEmpty = () => <Empty text= "No hay sugerencias :("></Empty>
     itemSeparator = () => <Separator> </Separator>
     viewCategory =  (item) => {
+        console.log('viewCategory');
         this.props.dispatch(            
             NavigationActions.navigate({
                 routeName: 'Category',  // esta propiedad debe estar declarada en el createStackNavigator de app-navigator
@@ -31,14 +32,14 @@ function mapStateToProps(state){
                     genre: item.genres[0]
                 }
             })            
-        )
+        );
     }
     renderItem = ({item}) => {
         return (
             <Category 
                 {...item}
                 // onPress={() => { this.viewCategory(item) }}
-                onPress={ this.viewCategory(item) }
+                onPress={() => {  console.log('onPress'); this.viewCategory(item) }}
             />
         )        
     }

@@ -10,7 +10,7 @@ import {
 function Category(props) {
     return (
         <TouchableOpacity
-            onPress = {props.OnPress}
+            onPress={props.onPress}
         >
             <ImageBackground
                 style = {styles.wrapper}
