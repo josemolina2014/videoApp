@@ -5,10 +5,30 @@ import {
   SafeAreaView,
   StyleSheet,
   Button,
+  StatusBar
 } from 'react-native';
 import { connect } from 'react-redux';
 
+import Icon from '../../sections/components/icon';
+
 class Profile extends Component {
+    static navigationOptions = () => {
+        return {
+          title: 'Perfil',
+          tabBarIcon: <Icon  icon='||'/>
+        }
+      }
+
+    componentDidMount(){
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+        console.log('didFocus');
+        StatusBar.setBarStyle('light-content');
+        StatusBar.setBackgroundColor('#022c43');
+        });
+    }
+    componentWillUnmount(){
+        this.focus.remove();
+    }   
   render() {
     return (
       <SafeAreaView style={styles.container}>

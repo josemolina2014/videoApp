@@ -41,10 +41,7 @@ const TabNavigator = createBottomTabNavigator (
             }
         },
         About:{
-            screen: About,   
-            navigationOptions:{
-                
-            }         
+            screen: About,             
         },
         Lucky:{
             screen : Lucky,

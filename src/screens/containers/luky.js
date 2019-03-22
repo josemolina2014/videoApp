@@ -6,8 +6,28 @@ import {
   StatusBar,
 } from 'react-native';
 import Search from '../../sections/containers/search';
+import Icon from '../../sections/components/icon';
 
 class Lucky extends Component {
+
+  static navigationOptions = () =>{
+    return {
+      title: "voy a tener suerte",
+      tabBarIcon: <Icon icon='--' />
+    }
+  }
+
+  componentDidMount(){
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+        console.log('didFocus');
+        StatusBar.setBarStyle('light-content');
+        StatusBar.setBackgroundColor('#022c43');
+      });
+  }
+  componentWillUnmount(){
+      this.focus.remove();
+  }
+
   render() {
     return (
       <View style={styles.container}>

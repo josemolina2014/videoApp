@@ -2,7 +2,8 @@ import React, {Component, Fragment} from 'react';
 import {  
     Text,
     View,
-    StyleSheet 
+    StyleSheet,
+    StatusBar 
   } from 'react-native';
 import {connect} from 'react-redux';
 
@@ -20,8 +21,13 @@ class Home extends Component{
             header: Header
         }
     }
-
+    
     async componentDidMount(){
+        this.focus = this.props.navigation.addListener('didFocus', () => {
+            console.log('didFocus');
+            StatusBar.setBarStyle('dark-content');
+            StatusBar.setBackgroundColor('white');
+          });
         const categoryList= await API.getMovies();//llamado al API
         this.props.dispatch({ // se cargan los datos obtenidos del api en el storse (Session) para poder utilizarlos
           type: 'SET_CATEGORY_LIST',
@@ -37,6 +43,10 @@ class Home extends Component{
             suggestionList
           }
         });
+    }
+
+    componentWillUnmount(){
+        this.focus.remove();
     }
 
     render(){  
