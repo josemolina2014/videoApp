@@ -13,6 +13,17 @@ import {
 import {connect} from 'react-redux'
 
 class Login extends Component{
+    handleLogin= () => {
+        const token = 'ABCDEFGHIJK';
+        this.props.dispatch({
+            type : 'SET_USER',
+            payload :{
+                token,
+                username: 'Yo mismo'
+            }
+        })
+       this.props.navigation.navigate('App');
+    }
 
     render(){
         return (
@@ -34,6 +45,7 @@ class Login extends Component{
                         secureTextEntry= {true}
                     />
                     <TouchableOpacity
+                        onPress = {this.handleLogin}
                         style= {styles.button}
                     >
                         <Text style={styles.buttonLabel}>Iniciar Sesión</Text>
@@ -81,4 +93,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Login;
+export default connect(null)(Login);

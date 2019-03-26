@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-
-import LoadingLayout from '../../sections/components/loading';
 import { connect} from 'react-redux';
 
-class Login  extends Component{
+import LoadingLayout from '../../sections/components/loading';
+
+
+class Login extends Component{
     componentDidMount(){
         if(this.props.user){
             this.props.navigation.navigate('App');
@@ -20,7 +21,7 @@ class Login  extends Component{
 
 function mapStateToProps(state){
     return {
-        user: state.user,
+        user: state.user
     }
 }
 export default connect(mapStateToProps)(Login) ;
