@@ -39,7 +39,7 @@ function mapStateToProps(state){
             <Category 
                 {...item}
                 // onPress={() => { this.viewCategory(item) }}
-                onPress={() => {  console.log('onPress'); this.viewCategory(item) }}
+                onPress={() => {     this.viewCategory(item) }}
             />
         )        
     }

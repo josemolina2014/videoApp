@@ -3,9 +3,10 @@ import React from 'react';
 import {
     createStackNavigator, 
     createAppContainer,
-    createBottomTabNavigator
+    createBottomTabNavigator,
+    createSwitchNavigator
 } from 'react-navigation'
-import Loading from './sections/components/loading'
+
 
 
 import Home from './screens/containers/home';
@@ -15,7 +16,8 @@ import Header from  './sections/components/header';
 import About from './screens/containers/about';
 import Lucky from './screens/containers/luky';
 import Profile from './screens/containers/profile';
-
+import Login from './screens/containers/login'
+import Loading from './screens/containers/loading';
 import Icon from './sections/components/icon';
 
 const Main = createStackNavigator(
@@ -59,4 +61,16 @@ const TabNavigator = createBottomTabNavigator (
 
     }
 )
-export default createAppContainer(TabNavigator);
+
+const SwitchNavigator  = createSwitchNavigator(
+    {
+       Loading: Loading,       
+       App: TabNavigator,
+       Login: Login,
+    },
+    {
+        initialRouteName: 'Loading'
+    }
+)
+
+export default createAppContainer(SwitchNavigator);
