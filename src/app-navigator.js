@@ -23,13 +23,16 @@ import Icon from './sections/components/icon';
 const Main = createStackNavigator(
     {
         Home : Home,
-        Movie : Movie,
+       
         Category
     },
    {
         defaultNavigationOptions :{
            header: Header,          
-       }
+       },
+       cardStyle: {
+        backgroundColor: 'white',
+       }      
    }
 )
 
@@ -62,15 +65,36 @@ const TabNavigator = createBottomTabNavigator (
     }
 )
 
+const WithModal =  createStackNavigator(
+    {
+        Main:{
+            screen: TabNavigator
+        },
+        Movie : Movie,
+    },
+    {
+        mode: 'modal',
+        //headerMode: 'none',
+        cardStyle: {
+            backgroundColor: 'white',
+        },
+        navigationOptions: {
+            gesturesEnabled: true
+        }
+    }
+)
+
 const SwitchNavigator  = createSwitchNavigator(
     {
-       Loading: Loading,       
-       App: TabNavigator,
+       App: WithModal,
+       Loading: Loading,
        Login: Login,
     },
     {
         initialRouteName: 'Loading'
     }
 )
+
+
 
 export default createAppContainer(SwitchNavigator);
