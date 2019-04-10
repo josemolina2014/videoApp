@@ -22,8 +22,7 @@ import Icon from './sections/components/icon';
 
 const Main = createStackNavigator(
     {
-        Home : Home,
-       
+        Home : Home,       
         Category
     },
    {
@@ -42,7 +41,7 @@ const TabNavigator = createBottomTabNavigator (
             screen: Main,
             navigationOptions:{
                 title : 'Inicio',
-                tabBarIcon : <Icon  icon=":)"/>
+                tabBarIcon : <Icon  icon="🏠"/>
             }
         },
         About:{
@@ -68,7 +67,10 @@ const TabNavigator = createBottomTabNavigator (
 const WithModal =  createStackNavigator(
     {
         Main:{
-            screen: TabNavigator
+            screen: TabNavigator,
+            navigationOptions : {
+                header: null
+            }
         },
         Movie : Movie,
     },
@@ -78,7 +80,7 @@ const WithModal =  createStackNavigator(
         cardStyle: {
             backgroundColor: 'white',
         },
-        navigationOptions: {
+        defaultNavigationOptions: {
             gesturesEnabled: true
         }
     }

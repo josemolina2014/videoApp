@@ -19,11 +19,18 @@ class Login extends Component{
             type : 'SET_USER',
             payload :{
                 token,
-                username: 'Yo mismo'
+                username: this.state.userName
             }
         })
        this.props.navigation.navigate('App');
     }
+
+    
+     handleChangeText = (text)   => {       
+        this.setState({
+            userName : text
+        })
+     }
 
     render(){
         return (
@@ -35,7 +42,8 @@ class Login extends Component{
                     />
                     <TextInput
                         style= {styles.input}
-                        placeholder="Nombre de usuario"
+                        placeholder="Nombre de usuario"                        
+                        onChangeText = {this.handleChangeText}
                         placeholderTextColor="white"
                     />
                     <TextInput 

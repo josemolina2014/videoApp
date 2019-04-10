@@ -15,7 +15,7 @@ class Profile extends Component {
     static navigationOptions = () => {
         return {
           title: 'Perfil',
-          tabBarIcon: <Icon  icon='||'/>
+          tabBarIcon: <Icon  icon='😎'/>
         }
       }
 
