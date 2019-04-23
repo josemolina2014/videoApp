@@ -4,7 +4,8 @@ import {
     createStackNavigator, 
     createAppContainer,
     createBottomTabNavigator,
-    createSwitchNavigator
+    createSwitchNavigator,
+    createDrawerNavigator
 } from 'react-navigation'
 
 
@@ -78,25 +79,51 @@ const WithModal =  createStackNavigator(
         mode: 'modal',
         //headerMode: 'none',
         cardStyle: {
-            backgroundColor: 'white',
+            backgroundColor: 'white',   
         },
         defaultNavigationOptions: {
             gesturesEnabled: true
         }
     }
 )
+const DrawerNavigator = createDrawerNavigator(
+    {
+        Main: {
+            screen: WithModal,
+        },
+        Sobre:{
+            screen: About, 
+        },
+        Suerte:{
+            screen: Lucky,
+        }
+    },
+    {
+        drawerWidth: 200,
+        drawerBackgroundColor: '#f6f6f6',
+        contentOptions:{
+            activeBackgroundColor: '#7aba2f',
+            activeTintColor: 'white',
+            inactiveTintColor: '#828282',
+            inactiveBackgroundColor: 'white',
+            itemStyle:{
+                borderBottomWidth: .5,
+                borderBottomColor: 'rgba(0,0,0,.5)',
+            }
+            
+        }
+    }
+);
 
 const SwitchNavigator  = createSwitchNavigator(
     {
-       App: WithModal,
+       App: DrawerNavigator,
        Loading: Loading,
        Login: Login,
     },
     {
         initialRouteName: 'Loading'
     }
-)
-
-
+);
 
 export default createAppContainer(SwitchNavigator);
