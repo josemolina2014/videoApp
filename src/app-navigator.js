@@ -20,6 +20,7 @@ import Profile from './screens/containers/profile';
 import Login from './screens/containers/login'
 import Loading from './screens/containers/loading';
 import Icon from './sections/components/icon';
+import DrawerComponent from './videos/components/drawer';
 
 const Main = createStackNavigator(
     {
@@ -105,6 +106,7 @@ const DrawerNavigator = createDrawerNavigator(
     {
         drawerWidth: 200,
         drawerBackgroundColor: '#f6f6f6',
+        contentComponent: DrawerComponent,
         contentOptions:{
             activeBackgroundColor: '#7aba2f',
             activeTintColor: 'white',
