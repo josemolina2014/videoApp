@@ -90,6 +90,10 @@ const DrawerNavigator = createDrawerNavigator(
     {
         Main: {
             screen: WithModal,
+            navigationOptions:{
+               title: 'Inicio',
+               drawerIcon:<Icon  icon='🏠'/>
+            }
         },
         Sobre:{
             screen: About, 
@@ -109,6 +113,12 @@ const DrawerNavigator = createDrawerNavigator(
             itemStyle:{
                 borderBottomWidth: .5,
                 borderBottomColor: 'rgba(0,0,0,.5)',
+            },
+            labelStyle:{
+                marginHorizontal:0,
+            },
+            iconContainerStyle:{
+                marginHorizontal: 5,
             }
             
         }
